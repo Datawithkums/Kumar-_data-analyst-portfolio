@@ -267,6 +267,43 @@ Investigate city-level cuisine, pricing, and online delivery patterns to underst
 ### Methodology Note
 Records with rating 1 are excluded, and cities must have at least 50 eligible records. The results describe this filtered dataset and do not establish the cause of rating differences.
 
+## Analysis 8: Online Delivery vs Average Restaurant Rating
+
+### Business Question
+Do restaurants offering online delivery have a higher average rating than restaurants that do not?
+
+### SQL Query
+```sql
+SELECT
+    Has_Online_delivery,
+    COUNT(*) AS rated_restaurants,
+    ROUND(
+        AVG(CAST(Rating AS DECIMAL(3,1))),
+        2
+    ) AS average_rating
+FROM zomato_dataset
+WHERE CAST(Rating AS DECIMAL(3,1)) > 1
+GROUP BY Has_Online_delivery
+ORDER BY average_rating DESC;
+```
+
+### Results
+
+| Online Delivery | Restaurants Analyzed | Average Rating |
+|---|---:|---:|
+| No | 5,048 | 3.47 |
+| Yes | 2,355 | 3.38 |
+
+### Business Insight
+Restaurants without online delivery have a slightly higher average rating (3.47) than restaurants offering online delivery (3.38), a difference of 0.09 rating points.
+
+### Business Recommendation
+Investigate customer feedback, cuisine categories, pricing, and service patterns to understand the rating difference before making operational decisions.
+
+### Methodology Note
+Only records with ratings greater than 1 were included. These results show an association in the dataset and do not prove that online delivery causes lower ratings.
+
+
 
 
 
