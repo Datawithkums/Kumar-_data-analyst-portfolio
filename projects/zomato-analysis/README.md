@@ -53,3 +53,39 @@ The analyzed records have an average rating of 3.44, with ratings ranging from 1
 
 ### Methodology Note
 Records with a rating of 1 were excluded for this analysis. This filter does not establish that those records contain invalid ratings.
+
+## Analysis 2: City-wise Restaurant Distribution
+
+### Business Question
+Which cities have the highest number of restaurant records?
+
+### SQL Query
+```sql
+SELECT
+    City,
+    COUNT(*) AS restaurant_count
+FROM zomato_dataset
+GROUP BY City
+ORDER BY restaurant_count DESC
+LIMIT 10;
+```
+
+### Results
+
+| City | Restaurant Records |
+|---|---:|
+| New Delhi | 5,473 |
+| Gurgaon | 1,118 |
+| Noida | 1,080 |
+| Faridabad | 251 |
+| Ghaziabad | 25 |
+
+### Business Insight
+New Delhi has the highest number of restaurant records in the dataset, followed by Gurgaon and Noida. This indicates a strong concentration of records in these cities.
+
+### Business Recommendation
+Further investigate city-level ratings, price ranges, and online delivery availability to understand how restaurant supply and customer ratings vary across locations.
+
+### Methodology Note
+These figures represent restaurant records grouped by city. They should not be interpreted as current market share or total real-world restaurant counts.
+
