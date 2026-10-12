@@ -476,6 +476,14 @@ This query identifies the top 10 cities by restaurant record count in the datase
 ![City-wise Restaurant Distribution](screenshots/city-wise-distribution.png)
 
 
+### Cuisine-wise Average Ratings
+
+This analysis compares average restaurant ratings across cuisine labels with at least 30 eligible records.
+
+![Cuisine-wise Average Ratings](screenshots/cuisine-average-ratings.png)
+
+
+
 
 
 
