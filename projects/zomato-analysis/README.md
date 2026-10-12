@@ -118,6 +118,41 @@ Approximately 25.66% of restaurant records indicate online delivery availability
 ### Business Recommendation
 Compare delivery availability by city, rating, and price range to identify patterns and potential areas for further investigation.
 
+## Analysis 4: Restaurant Price Range Distribution
+
+### Business Question
+Which price range contains the largest number of restaurant records?
+
+### SQL Query
+```sql
+SELECT
+    Price_range,
+    COUNT(*) AS restaurant_count
+FROM zomato_dataset
+GROUP BY Price_range
+ORDER BY restaurant_count DESC;
+```
+
+### Results
+
+| Price Range | Restaurant Records | Percentage |
+|---:|---:|---:|
+| 1 | 4,444 | 46.53% |
+| 2 | 3,113 | 32.59% |
+| 3 | 1,408 | 14.74% |
+| 4 | 586 | 6.14% |
+| **Total** | **9,551** | **100.00%** |
+
+### Business Insight
+Price Range 1 represents the largest category, accounting for 46.53% of restaurant records. Price Range 4 represents the smallest category at 6.14%.
+
+### Business Recommendation
+Compare price ranges with restaurant ratings, city, and online delivery availability to identify patterns in affordability and customer ratings.
+
+### Methodology Note
+Percentages are calculated using 9,551 restaurant records. Price range labels are treated as dataset categories; their exact monetary interpretation should be confirmed from the dataset documentation.
+
+
 ### Methodology Note
 Percentages are calculated from all 9,551 records in this dataset. The results reflect the dataset's recorded values, not verified current service availability.
 
