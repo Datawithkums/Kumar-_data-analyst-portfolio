@@ -156,4 +156,40 @@ Percentages are calculated using 9,551 restaurant records. Price range labels ar
 ### Methodology Note
 Percentages are calculated from all 9,551 records in this dataset. The results reflect the dataset's recorded values, not verified current service availability.
 
+## Analysis 5: Average Cost and Data Quality
+
+### Business Question
+What is the average cost for two people, and are there any unusual cost values?
+
+### SQL Query: Currency-wise Cost Analysis
+```sql
+SELECT
+    Currency,
+    COUNT(*) AS restaurant_count,
+    ROUND(AVG(Average_Cost_for_two), 2) AS average_cost_for_two,
+    MIN(Average_Cost_for_two) AS minimum_cost,
+    MAX(Average_Cost_for_two) AS maximum_cost
+FROM zomato_dataset
+GROUP BY Currency
+ORDER BY restaurant_count DESC;
+```
+
+### Key Findings
+- Indian Rupees account for 8,652 restaurant records.
+- The average recorded cost for two in Indian Rupees is 623.37.
+- The average recorded cost for two in US Dollars is 31.51.
+- Cost values vary by currency and must not be compared directly without currency conversion.
+
+### Data Quality Check: Zero-Cost Records
+A separate query identified 18 records with `Average_Cost_for_two = 0`:
+- Dollar ($): 9 records
+- Indian Rupees (Rs.): 9 records
+
+### Business Insight
+Zero-cost values may represent free dining, missing values, or data-entry/default-value issues. Further verification is required before classifying these records as errors or excluding them from the analysis.
+
+### Recommendation
+Validate zero-cost records against reliable source information and perform currency-specific analysis before using cost metrics for business decisions.
+
+
 
