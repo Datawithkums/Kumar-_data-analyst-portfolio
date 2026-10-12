@@ -303,6 +303,54 @@ Investigate customer feedback, cuisine categories, pricing, and service patterns
 ### Methodology Note
 Only records with ratings greater than 1 were included. These results show an association in the dataset and do not prove that online delivery causes lower ratings.
 
+## Analysis 9: Cuisine-wise Average Restaurant Ratings
+
+### Business Question
+Which cuisine categories have the highest average restaurant ratings?
+
+### SQL Query
+```sql
+SELECT
+    Cuisines,
+    COUNT(*) AS restaurant_count,
+    ROUND(
+        AVG(CAST(Rating AS DECIMAL(3,1))),
+        2
+    ) AS average_rating
+FROM zomato_dataset
+WHERE CAST(Rating AS DECIMAL(3,1)) > 1
+  AND Cuisines IS NOT NULL
+GROUP BY Cuisines
+HAVING COUNT(*) >= 30
+ORDER BY average_rating DESC
+LIMIT 10;
+```
+
+### Results
+
+| Cuisine Category | Restaurants Analyzed | Average Rating |
+|---|---:|---:|
+| Italian | 50 | 3.95 |
+| Mexican | 34 | 3.85 |
+| Desserts | 40 | 3.60 |
+| Chinese \| Thai | 48 | 3.52 |
+| Burger \| Fast Food | 39 | 3.49 |
+| Bakery \| Desserts \| Fast Food | 61 | 3.48 |
+| Beverages | 39 | 3.44 |
+| Pizza | 34 | 3.44 |
+| Ice Cream | 45 | 3.44 |
+| Cafe | 252 | 3.43 |
+
+### Business Insight
+Italian cuisine has the highest average rating among the categories returned by this query, at 3.95, followed by Mexican cuisine at 3.85. Cafe has the largest number of analyzed restaurants among these ten categories, with 252 records.
+
+### Business Recommendation
+Restaurant businesses could investigate customer feedback and demand for highly rated cuisine categories when evaluating menu opportunities. Ratings alone do not establish customer demand or profitability.
+
+### Methodology Note
+Only records with ratings greater than 1 and non-null cuisine values were included. Each distinct cuisine string, including combinations such as `Chinese | Thai`, is treated as a separate category. Categories require at least 30 eligible records.
+
+
 
 
 
