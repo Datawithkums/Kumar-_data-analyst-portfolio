@@ -26,18 +26,27 @@ I am focused on applying these strengths to business intelligence, reporting, da
 
 ### 1. Restaurant Business Analysis — MySQL
 
-**Objective:** Analyze restaurant data to understand pricing patterns, customer ratings, cuisine categories, and online delivery availability.
+**Objective:** Analyze restaurant data to identify pricing patterns, customer rating trends, cuisine categories, city-level distribution, and online delivery availability.
 
-**Planned analysis:**
-- Data structure assessment and data quality checks
-- SQL queries to answer business questions
-- Restaurant rating and pricing analysis
-- Cuisine and delivery pattern analysis
-- Business insights supported by query results
+**Key Analysis:**
+- Dataset overview and data quality checks
+- City-wise restaurant distribution
+- Restaurant rating and price range analysis
+- Average cost analysis by currency
+- Cuisine popularity and average ratings
+- Online delivery availability and rating comparison
+- Top restaurants by customer votes
 
-**Tools:** MySQL, SQL
+**Tools:** MySQL, SQL, MySQL Workbench, GitHub
 
-**Status:** In progress
+**Deliverables:**
+- 10 documented business analyses
+- SQL queries in `zomato_analysis.sql`
+- Business insights and methodology notes
+- MySQL query result screenshots
+
+**Status:** Completed — initial SQL analysis and result verification completed.
+
 
 ### 2. Sales Performance & KPI Analysis
 
