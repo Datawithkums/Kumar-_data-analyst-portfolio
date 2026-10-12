@@ -47,6 +47,9 @@ I am focused on applying these strengths to business intelligence, reporting, da
 
 **Status:** Completed — initial SQL analysis and result verification completed.
 
+**Project Files:** [View Zomato SQL Analysis](projects/zomato-analysis/README.md)
+
+
 
 ### 2. Sales Performance & KPI Analysis
 
