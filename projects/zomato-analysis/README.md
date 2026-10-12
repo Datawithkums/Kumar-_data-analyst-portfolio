@@ -1,5 +1,7 @@
 # Zomato Restaurant Data Analysis
 
+A MySQL-based restaurant data analysis project exploring restaurant distribution, customer ratings, online delivery availability, price ranges, cuisine categories, and customer engagement through business-focused SQL queries.
+
 ## Project Overview
 This project analyzes restaurant data to identify patterns in restaurant ratings, pricing, cuisines, and online delivery availability.
 
