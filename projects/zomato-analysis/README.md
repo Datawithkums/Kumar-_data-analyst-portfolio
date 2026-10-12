@@ -393,6 +393,45 @@ Restaurant analysts could compare vote counts with ratings, cuisine categories, 
 ### Methodology Note
 Only records with non-null vote counts were included. The results rank restaurant records by votes in descending order. The same restaurant brand may appear in multiple cities.
 
+## Final Summary and Key Business Findings
+
+### Project Overview
+This project analyzes restaurant data using MySQL to explore restaurant distribution, customer ratings, online delivery, price ranges, cuisine categories, and customer engagement.
+
+### Key Findings
+
+1. **Dataset size:** Analyzed 9,551 restaurant records.
+2. **Geographic distribution:** New Delhi has 5,473 records, followed by Gurgaon with 1,118 and Noida with 1,080.
+3. **Online delivery:** 2,451 records (25.66%) indicate online delivery availability, while 7,100 (74.34%) indicate no online delivery.
+4. **Price range:** Price range 1 is the most common category, accounting for 4,444 records (46.53%).
+5. **Restaurant ratings:** Among records with ratings greater than 1, the average rating is 3.44 across 7,403 records.
+6. **Cuisine ratings:** Italian cuisine has the highest average rating in the returned results, at 3.95, among categories with at least 30 eligible records.
+7. **Customer engagement:** Toit in Bangalore leads the displayed top-voted results with 10,934 votes and a rating of 4.8.
+8. **Delivery comparison:** Restaurants without online delivery have an average rating of 3.47, compared with 3.38 for restaurants with online delivery.
+9. **Data quality consideration:** The dataset contains 18 records with a recorded average cost for two of zero. These records require further verification before drawing conclusions.
+
+### Skills Demonstrated
+- MySQL querying
+- Filtering and sorting
+- Aggregate functions: `COUNT()`, `AVG()`, `MIN()`, `MAX()`
+- Grouping with `GROUP BY` and filtering groups with `HAVING`
+- Data type conversion with `CAST()`
+- Business question formulation
+- Translating query results into business insights
+- Documenting analysis for a portfolio
+
+### Limitations
+- The analysis describes the supplied dataset and does not establish current restaurant conditions.
+- Rating filters affect the results and should be considered when comparing groups.
+- Combined cuisine labels are treated as separate categories.
+- Average costs across different currencies should not be directly compared without currency conversion.
+- Observed relationships do not establish causation.
+
+### Conclusion
+This project demonstrates how SQL can transform restaurant data into structured business insights. Further work could include deeper cuisine analysis, data-quality validation, and an interactive Power BI dashboard.
+
+
+
 
 
 
