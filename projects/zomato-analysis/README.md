@@ -89,3 +89,36 @@ Further investigate city-level ratings, price ranges, and online delivery availa
 ### Methodology Note
 These figures represent restaurant records grouped by city. They should not be interpreted as current market share or total real-world restaurant counts.
 
+## Analysis 3: Online Delivery Availability
+
+### Business Question
+How many restaurant records indicate online delivery availability?
+
+### SQL Query
+```sql
+SELECT
+    Has_Online_delivery,
+    COUNT(*) AS restaurant_count
+FROM zomato_dataset
+GROUP BY Has_Online_delivery
+ORDER BY restaurant_count DESC;
+```
+
+### Results
+
+| Online Delivery | Restaurant Records | Percentage |
+|---|---:|---:|
+| No | 7,100 | 74.34% |
+| Yes | 2,451 | 25.66% |
+| **Total** | **9,551** | **100.00%** |
+
+### Business Insight
+Approximately 25.66% of restaurant records indicate online delivery availability, while 74.34% are marked as unavailable.
+
+### Business Recommendation
+Compare delivery availability by city, rating, and price range to identify patterns and potential areas for further investigation.
+
+### Methodology Note
+Percentages are calculated from all 9,551 records in this dataset. The results reflect the dataset's recorded values, not verified current service availability.
+
+
