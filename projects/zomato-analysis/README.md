@@ -227,6 +227,47 @@ Analyze ratings, price ranges, and online delivery availability across cuisine c
 ### Methodology Note
 Combined cuisine values are treated as separate categories. A restaurant offering multiple cuisines may appear under a combined label rather than being counted separately for each cuisine.
 
+## Analysis 7: City-wise Average Restaurant Ratings
+
+### Business Question
+Which cities have the highest average restaurant ratings among cities with at least 50 eligible records?
+
+### SQL Query
+```sql id="q4y7hw"
+SELECT
+    City,
+    COUNT(*) AS restaurant_count,
+    ROUND(
+        AVG(CAST(Rating AS DECIMAL(3,1))),
+        2
+    ) AS average_rating
+FROM zomato_dataset
+WHERE CAST(Rating AS DECIMAL(3,1)) > 1
+GROUP BY City
+HAVING COUNT(*) >= 50
+ORDER BY average_rating DESC
+LIMIT 10;
+```
+
+### Results
+
+| City | Records Analyzed | Average Rating |
+|---|---:|---:|
+| Gurgaon | 890 | 3.33 |
+| New Delhi | 4,048 | 3.30 |
+| Noida | 696 | 3.16 |
+| Faridabad | 151 | 3.10 |
+
+### Business Insight
+Gurgaon has the highest average rating among the cities returned by the query, at 3.33. New Delhi has the largest number of analyzed records, at 4,048.
+
+### Business Recommendation
+Investigate city-level cuisine, pricing, and online delivery patterns to understand factors associated with rating differences.
+
+### Methodology Note
+Records with rating 1 are excluded, and cities must have at least 50 eligible records. The results describe this filtered dataset and do not establish the cause of rating differences.
+
+
 
 
 
