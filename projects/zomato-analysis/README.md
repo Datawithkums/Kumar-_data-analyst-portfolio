@@ -350,6 +350,50 @@ Restaurant businesses could investigate customer feedback and demand for highly 
 ### Methodology Note
 Only records with ratings greater than 1 and non-null cuisine values were included. Each distinct cuisine string, including combinations such as `Chinese | Thai`, is treated as a separate category. Categories require at least 30 eligible records.
 
+## Analysis 10: Top Restaurants by Customer Votes
+
+### Business Question
+Which restaurants have the highest number of customer votes in the dataset?
+
+### SQL Query
+```sql
+SELECT
+    RestaurantName,
+    City,
+    Cuisines,
+    Votes,
+    CAST(Rating AS DECIMAL(3,1)) AS Rating
+FROM zomato_dataset
+WHERE Votes IS NOT NULL
+ORDER BY Votes DESC
+LIMIT 10;
+```
+
+### Results
+
+| Restaurant | City | Votes | Rating |
+|---|---|---:|---:|
+| Toit | Bangalore | 10,934 | 4.8 |
+| Truffles | Bangalore | 9,667 | 4.7 |
+| Hauz Khas Social | New Delhi | 7,931 | 4.3 |
+| Peter Cat | Kolkata | 7,574 | 4.3 |
+| AB's - Absolute Barbecues | Bangalore | 6,907 | 4.6 |
+| Barbeque Nation | Kolkata | 5,966 | 4.9 |
+| Big Brewsky | Bangalore | 5,705 | 4.5 |
+| AB's - Absolute Barbecues | Hyderabad | 5,434 | 4.9 |
+| The Black Pearl | Bangalore | 5,385 | 4.1 |
+| BarBQ | Kolkata | 5,288 | 4.2 |
+
+### Business Insight
+Toit in Bangalore has the highest vote count among the displayed results, with 10,934 votes and a rating of 4.8. Bangalore appears multiple times in the top-voted results, indicating strong representation in this dataset's customer-vote rankings.
+
+### Business Recommendation
+Restaurant analysts could compare vote counts with ratings, cuisine categories, and city-level patterns to understand customer engagement. Vote counts alone do not prove sales volume or overall restaurant quality.
+
+### Methodology Note
+Only records with non-null vote counts were included. The results rank restaurant records by votes in descending order. The same restaurant brand may appear in multiple cities.
+
+
 
 
 
