@@ -191,5 +191,42 @@ Zero-cost values may represent free dining, missing values, or data-entry/defaul
 ### Recommendation
 Validate zero-cost records against reliable source information and perform currency-specific analysis before using cost metrics for business decisions.
 
+## Analysis 6: Popular Cuisine Categories
+
+### Business Question
+Which cuisine categories appear most frequently in the restaurant dataset?
+
+### SQL Query
+```sql id="6ft4c2"
+SELECT
+    Cuisines,
+    COUNT(*) AS restaurant_count
+FROM zomato_dataset
+WHERE Cuisines IS NOT NULL
+GROUP BY Cuisines
+ORDER BY restaurant_count DESC
+LIMIT 10;
+```
+
+### Results
+
+| Cuisine Category | Restaurant Records |
+|---|---:|
+| North Indian | 936 |
+| North Indian, Chinese | 511 |
+| Chinese | 354 |
+| Fast Food | 354 |
+| North Indian, Mughlai | 334 |
+
+### Business Insight
+North Indian is the most frequent individual cuisine category among the top results, with 936 restaurant records. North Indian and Chinese is the most frequent combined cuisine category in this result set, with 511 records.
+
+### Business Recommendation
+Analyze ratings, price ranges, and online delivery availability across cuisine categories to understand customer preferences and business opportunities.
+
+### Methodology Note
+Combined cuisine values are treated as separate categories. A restaurant offering multiple cuisines may appear under a combined label rather than being counted separately for each cuisine.
+
+
 
 
