@@ -433,6 +433,38 @@ This project analyzes restaurant data using MySQL to explore restaurant distribu
 This project demonstrates how SQL can transform restaurant data into structured business insights. Further work could include deeper cuisine analysis, data-quality validation, and an interactive Power BI dashboard.
 
 
+## Tools & Technologies
+
+- **Database:** MySQL
+- **Query Language:** SQL
+- **Database Client:** MySQL Workbench
+- **Analysis Techniques:** Aggregation, filtering, grouping, sorting, percentage calculations, and data-quality checks
+- **Documentation:** GitHub Markdown
+
+## Project Deliverables
+
+- SQL queries for restaurant data analysis
+- Business-focused questions and findings
+- Summary of key insights and methodology limitations
+
+
+## Project Structure
+
+```text
+zomato-analysis/
+├── README.md
+└── zomato_analysis.sql
+```
+
+## How to Use
+
+1. Download or clone this repository.
+2. Open the SQL file in MySQL Workbench.
+3. Select the database containing the `zomato_dataset` table.
+4. Run the queries individually to reproduce the analysis.
+5. Compare the query outputs with the documented findings.
+
+**Note:** The SQL queries require the dataset table and expected column names to match the schema used in this project.
 
 
 
