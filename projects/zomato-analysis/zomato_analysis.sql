@@ -1,22 +1,23 @@
 
-
 -- ============================================================
 -- PROJECT: Zomato Restaurant Data Analysis
 -- DATABASE: MySQL
 -- TABLE: zomato_dataset
--- PURPOSE: Explore restaurant data and generate business insights
+-- PURPOSE: Restaurant business insights using SQL
 -- ============================================================
 
 
--- ANALYSIS 1: Dataset Overview
+-- README ANALYSIS 1: Dataset Overview and Rating Summary
+-- Query 1A: Dataset overview
+
 SELECT
     COUNT(*) AS total_records,
     COUNT(DISTINCT RestaurantID) AS unique_restaurants,
     COUNT(DISTINCT City) AS unique_cities
 FROM zomato_dataset;
 
+-- Query 1B: Rating distribution
 
--- ANALYSIS 2: Restaurant Rating Distribution
 SELECT
     Rating,
     COUNT(*) AS restaurant_count
@@ -24,8 +25,8 @@ FROM zomato_dataset
 GROUP BY Rating
 ORDER BY restaurant_count DESC;
 
+-- Query 1C: Rating summary for ratings greater than 1
 
--- ANALYSIS 3: Rating Summary (Rating > 1)
 SELECT
     COUNT(*) AS rated_restaurants,
     ROUND(AVG(CAST(Rating AS DECIMAL(3,1))), 2)
@@ -36,7 +37,8 @@ FROM zomato_dataset
 WHERE CAST(Rating AS DECIMAL(3,1)) > 1;
 
 
--- ANALYSIS 4: Top 10 Cities by Restaurant Count
+-- README ANALYSIS 2: City-wise Restaurant Distribution
+
 SELECT
     City,
     COUNT(*) AS restaurant_count
@@ -46,7 +48,8 @@ ORDER BY restaurant_count DESC
 LIMIT 10;
 
 
--- ANALYSIS 5: Online Delivery Availability
+-- README ANALYSIS 3: Online Delivery Availability
+
 SELECT
     Has_Online_delivery,
     COUNT(*) AS restaurant_count,
@@ -60,7 +63,8 @@ GROUP BY Has_Online_delivery
 ORDER BY restaurant_count DESC;
 
 
--- ANALYSIS 6: Price Range Distribution
+-- README ANALYSIS 4: Price Range Distribution
+
 SELECT
     Price_range,
     COUNT(*) AS restaurant_count,
@@ -74,7 +78,8 @@ GROUP BY Price_range
 ORDER BY restaurant_count DESC;
 
 
--- ANALYSIS 7: Average Cost by Currency
+-- README ANALYSIS 5: Average Cost by Currency
+
 SELECT
     Currency,
     COUNT(*) AS restaurant_count,
@@ -86,8 +91,8 @@ FROM zomato_dataset
 GROUP BY Currency
 ORDER BY restaurant_count DESC;
 
+-- Supporting data-quality check: Zero-cost records
 
--- ANALYSIS 8: Zero-Cost Records
 SELECT
     Currency,
     COUNT(*) AS zero_cost_records
@@ -97,7 +102,8 @@ GROUP BY Currency
 ORDER BY zero_cost_records DESC;
 
 
--- ANALYSIS 9: Top 10 Cuisine Labels by Restaurant Count
+-- README ANALYSIS 6: Most Common Cuisine Categories
+
 SELECT
     Cuisines,
     COUNT(*) AS restaurant_count
@@ -108,7 +114,8 @@ ORDER BY restaurant_count DESC
 LIMIT 10;
 
 
--- ANALYSIS 10: City-wise Average Ratings
+-- README ANALYSIS 7: City-wise Average Ratings
+
 SELECT
     City,
     COUNT(*) AS restaurant_count,
@@ -123,7 +130,8 @@ ORDER BY average_rating DESC
 LIMIT 10;
 
 
--- ANALYSIS 11: Online Delivery vs Average Rating
+-- README ANALYSIS 8: Online Delivery vs Average Rating
+
 SELECT
     Has_Online_delivery,
     COUNT(*) AS rated_restaurants,
@@ -136,7 +144,8 @@ GROUP BY Has_Online_delivery
 ORDER BY average_rating DESC;
 
 
--- ANALYSIS 12: Cuisine-wise Average Ratings
+-- README ANALYSIS 9: Cuisine-wise Average Ratings
+
 SELECT
     Cuisines,
     COUNT(*) AS restaurant_count,
@@ -152,7 +161,8 @@ ORDER BY average_rating DESC
 LIMIT 10;
 
 
--- ANALYSIS 13: Top 10 Restaurants by Customer Votes
+-- README ANALYSIS 10: Top Restaurants by Customer Votes
+
 SELECT
     RestaurantName,
     City,
