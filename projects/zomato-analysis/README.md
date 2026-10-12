@@ -467,6 +467,16 @@ zomato-analysis/
 **Note:** The SQL queries require the dataset table and expected column names to match the schema used in this project.
 
 
+## Project Screenshot
+
+### City-wise Restaurant Distribution
+
+This query identifies the top 10 cities by restaurant record count in the dataset.
+
+![City-wise Restaurant Distribution](screenshots/city-wise-distribution.png)
+
+
+
 
 
 
